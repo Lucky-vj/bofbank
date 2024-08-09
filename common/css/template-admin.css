@@ -1,0 +1,205 @@
+#sidebar-menu ul li a i { /*color: #000000 !important;*/ font-size:14px !important; }
+
+#sidebar-menu ul li a { color: #fff !important; font-size: 14px !important; }
+
+    .vertical-menu {
+
+        background-color: #fff !important;
+
+        bottom: 0 !important;
+
+        left: 0 !important;
+
+        margin-top: 0 !important;
+
+		top: 90px !important;
+
+        transition: all 0.2s ease-in-out 0s !important;
+
+        z-index: 1001 !important;
+
+        border-top-right-radius: 20px !important;
+
+        box-shadow: 0 0 13px 0 rgb(82 63 105 / 5%) !important;
+
+        overflow-y: hidden !important;
+
+    }
+
+body[data-topbar=colored] .header-item, body[data-topbar=dark] .header-item {color: #000000 !important;}
+
+#page-topbar { height: unset !important;}
+
+.waves-effect{position:relative;cursor:pointer;display:inline-block;overflow:hidden;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+
+#sidebar-menu ul li a:hover { color: #FFFFFF !important;font-size: 15px !important;}
+
+.footer { position: inherit !important; }
+
+
+
+.jqte{ margin: 5px 0 !important;}
+
+.jqte_tool.jqte_tool_1 .jqte_tool_label { height: 20px !important; }
+
+
+
+
+
+
+
+
+
+/* admin inner pages start */
+.admin-dashboard .dashboard-none {
+    display: none;
+}
+.admin .form-floating.inner_page_input i.fa-solid.fa-magnifying-glass.fa-beat-fade {
+    position: absolute;
+    /* top: 28px; */
+    left: 18px;
+    padding-right: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    z-index: 1;
+}
+.admin .form-floating.inner_page_input input {
+    padding-left: 43px !important;
+}
+.admin .form-floating.inner_page_input {
+    width: 100%;
+}
+.admin .avatar-title {
+    background-color: #27aae1 !important;
+}
+.admin tr:last-child, .admin tbody tr.pagination:hover{
+    border: 1px solid transparent !important;
+    background: transparent !important;
+}
+.admin tr:hover {
+    background: #0dcaf0b3 !important;
+    color: #fff !important;
+}
+.admin table.table.table-centered.table-nowrap.mb-0 thead th, .admin table.table.table-centered.table-nowrap.mb-0 tbody td {
+    /* color: #0dcaf0; */
+    white-space: nowrap;
+}
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #27aae1;
+    --bs-btn-border-color: #27aae1;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #27aae1;
+    --bs-btn-hover-border-color: #27aae1;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #27aae1;
+    --bs-btn-active-border-color: #27aae1;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #27aae1;
+    --bs-btn-disabled-border-color: #27aae1;
+}
+.manage-member .input-group {
+    border-radius: 10px;
+    border: 1px solid #27AAE1;
+    background: #FFF;
+    box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.50);
+}
+.manage-member .input-group input{
+    background: transparent !important;
+    border: 0 !important;
+    border-right: 1px solid #27AAE1!important;
+    border-radius: 0 !important;
+}
+.manage-member .input-group select{
+    box-shadow: none !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 0 !important;
+    margin-left: 0 !important;
+}
+ i.fa-solid.fa-angle-down {
+    position: absolute;
+    top: 16px;
+}
+.admin input, .admin select, .admin textarea{
+    border-radius: 10px !important;
+    border: 1px solid #27AAE1 !important;
+    background: #FFF !important;
+    box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.50) !important;
+    height: 38px !important;
+}
+.admin textarea{
+    height: auto !important;
+}
+.admin select{
+    cursor:pointer;
+}
+.admin table.table thead {
+    background: #0dcaf0;
+}
+.admin .submit-clr{
+    color: #0dcaf0;
+}
+.admin .inner-page.card{
+    padding: 50px;
+}
+.admin input.form-control.date {
+    cursor: pointer;
+}
+.admin .btn-flex{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.admin .radio-tab{
+    width: 100%;
+    justify-content: space-around;
+}
+.admin .radio-tab input{
+    border-radius: auto !important;
+    border: 1px solid #27AAE1 !important;
+    background-image: var(--bs-form-check-bg-image) !important;
+    background-repeat: no-repeat !important;
+    box-shadow: none !important;
+    height: 14px !important;
+}
+.admin.bank-ac.ad .radio-tab input{
+    width: 24px;
+    height: 24px;
+    border-radius: 4px !important;
+}
+.radio-checkbox input{
+   width:14px !important;
+   height: 14px !important;
+   border-radius: 4px !important;
+}
+.admin .form-check-input:checked {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+.admin .fa-star-of-life {
+    color: #FF0000 !important;
+    font-size: 6px !important;
+    position: relative;
+    bottom: 8px;
+}
+.admin.approve input, .admin.approve select, .admin.approve textarea{
+    margin-bottom: 10px !important;
+}
+.admin table.table thead th, .admin table.table tbody tr td {
+    white-space: nowrap;
+}
+.manage-member i.fa-solid.fa-angle-down {
+    top: 12px;
+}
+/* admin inner pages end */
+
+/* header */
+header.is-sticky {
+    background: #27aae1 !important;
+    padding: 0 15px !important;
+    border-radius: 0px 0px 10px 10px !important;
+}
+/* header */

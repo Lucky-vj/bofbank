@@ -1,0 +1,279 @@
+@media (min-width: 1px) and (max-width: 575.98px) {
+}
+
+@media (max-width: 767.98px) {
+  .inner-page.card {
+    padding: 20px !important;
+  }
+  .form-floating.inner_page_input {
+    flex-direction: column;
+    width: 100%;
+  }
+  .common-inner-css .row .inner-col {
+    width: 100% !important;
+  }
+  i.fa-solid.fa-angle-down {
+    position: absolute;
+    z-index: 1;
+    right: 17px;
+    bottom: 14px;
+  }
+  .descrip {
+    margin: 0 !important;
+  }
+  textarea#comment_text {
+    padding: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: Epilogue;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    width: -webkit-fill-available;
+    margin: auto;
+    margin-top: 25px;
+  }
+  /*transfer*/
+  .transfer .row {
+    justify-content: center;
+    gap: 20px;
+  }
+  .transfer i.fa-solid.fa-angle-down {
+    bottom: auto;
+  }
+  /*transfer*/
+  /* money-exchange */
+  .money-balance {
+    width: auto !important;
+    height: 287px;
+  }
+  .btn.btn-sm.money-balance {
+    bottom: 100px;
+  }
+  .money-balance h1 {
+    font-size: 40px !important;
+    padding: 0 !important;
+  }
+  .money-exchange .common-btn {
+    top: 47px;
+  }
+  /* money-exchange */
+  /* profile page */
+  .main-content.profile-page .inner-page.card {
+    padding-top: 70px !important;
+  }
+  /* profile page */
+
+  /* dashboard */
+  .dashboard-main-asset {
+    left: 0 !important;
+  }
+  .dashboard-page .media {
+    margin: 50px;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .media-left-part {
+    align-items: center;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-right: 0px;
+  }
+  .media-left-part:after {
+    display: none !important;
+  }
+  .dashboard-page .dashboard-button,
+  .dashboard-page .dashboard-button:hover {
+    width: 100%;
+    padding: 17px;
+  }
+  .dashboard-page .dashboard-button a.dbutton {
+    white-space: nowrap;
+  }
+  .dashboard-page .media-body h2 {
+    font-size: 114px !important;
+  }
+  .dashboard-page .bottom-left-sec {
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .dasboard-bottom-sec {
+    flex-direction: column;
+    gap: 26px;
+  }
+  .dashboard-page .btn.btn-sm.money-balance {
+    width: 100% !important;
+  }
+  .dashboard-page .bottom-left-sec div {
+    width: 100% !important;
+  }
+  .dashboard-page .transfer .row {
+    gap: 0px !important;
+  }
+  /* dashboard */
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .descrip .form-floating.inner_page_input {
+    width: 100%;
+    justify-content: center;
+  }
+  .top-inner-transfer-card {
+    margin-bottom: 20px !important;
+  }
+  .crypto.common-inner-css .row {
+    justify-content: center !important;
+  }
+  .crypto .descrip {
+    margin: auto;
+  }
+  /* money-exchange */
+  .btn.btn-sm.money-balance {
+    margin: auto;
+  }
+  .btn.btn-sm.money-balance {
+    /* bottom: 100px; */
+    margin: auto;
+    width: 265px;
+  }
+  .money-exchange .common-btn {
+    top: 46px;
+  }
+  /* money-exchange */
+
+  /* dashboard */
+  .dasboard-bottom-sec {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .dashboard-page .btn.btn-sm.money-balance {
+    margin-top: 30px;
+  }
+  .dashboard-main-asset {
+    position: relative;
+    left: auto !important;
+    text-align: center;
+  }
+  .dashboard-page .media {
+    margin: 30px;
+  }
+  .dashboard-page .row {
+    justify-content: center;
+  }
+  /* dashboard */
+  /* account security */
+  .account-security .two-step .dropdown-toggle {
+    white-space: pre-wrap !important;
+  }
+  /* account security */
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .form-floating.inner_page_input {
+    width: 361px;
+  }
+  .descrip {
+    margin: 0px 0px 0 auto;
+    margin-top: 40px !important;
+  }
+  .crypto.common-inner-css .row {
+    justify-content: center !important;
+  }
+  .crypto .descrip {
+    margin: auto;
+  }
+  /* money-exchange */
+  .btn.btn-sm.money-balance {
+    margin: auto;
+  }
+  /* money-exchange */
+  /* dashboard */
+  .dasboard-bottom-sec {
+    flex-direction: column;
+  }
+  .dashboard-main-asset {
+    position: relative;
+    left: auto;
+    text-align: center;
+  }
+  .dashboard-page .media-body h2 {
+    font-size: 94px !important;
+  }
+  .media-left-part {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 0;
+    height: auto !important;
+  }
+  .dashboard-page .media {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .media-left-part:after {
+    display: none !important;
+  }
+  .dashboard-page .btn.btn-sm.money-balance {
+    margin-top: 30px;
+  }
+  /* dashboard */
+}
+@media (max-width: 991.98px) {
+  div#s_box {
+    padding: 0;
+  }
+  .img-fluid {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1349.98px) {
+}
+
+@media (max-width: 1999.98px) {
+  .inner-page.card {
+    /*padding:20px !important;*/
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1375px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .media-left-part:after {
+    right: -69px;
+  }
+  .dasboard-bottom-sec {
+    align-items: center;
+    flex-direction: column;
+  }
+  .dashboard-page .btn.btn-sm.money-balance {
+    margin-top: 30px;
+  }
+  .dashboard-main-asset {
+    display: none;
+  }
+  .main-asset {
+    width: 0 !important;
+  }
+  .dashboard-page .media-body h2 {
+    font-size: 101px !important;
+  }
+  .dashboard-page .media {
+    width: 100% !important;
+  }
+}
+
+/* admin */
+@media (max-width: 767.98px) {
+  .modal-dialog {
+    max-width: 99%;
+  }
+}
