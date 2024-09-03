@@ -192,13 +192,27 @@ if (in_array($data['PageFile'], $header_title_search)) {
               </div>
               <!-- App Search-->
 
-
-
             </div>
-            <!-- <div class="d-flex text-center"></div> -->
+
+
+            <?
+            $qry = "SELECT * FROM `tbl_client_master` WHERE `status`= 'New'";
+
+            $rows = db_rows($qry);
+            $nor = $db_counts;
+
+            ?>
 
             <div class="d-flex">
 
+
+              <div class="dropdown-center mx-4 mb-1">
+
+                <a href="<?= $data['Admins']; ?>/maillist<?= $data['ex'] ?>">
+                  <i class="fa-regular fa-bell"><?php echo $nor; ?></i></a>
+
+
+              </div>
 
 
               <div class="dropdown-center mx-2 mb-1">
@@ -219,7 +233,6 @@ if (in_array($data['PageFile'], $header_title_search)) {
                     <path d="M8.87455 0.202881H5.40598C4.0261 0.202881 2.70273 0.751038 1.72701 1.72676C0.751282 2.70249 0.203125 4.02585 0.203125 5.40574V8.87431C0.203125 10.2542 0.751282 11.5776 1.72701 12.5533C2.70273 13.529 4.0261 14.0772 5.40598 14.0772H8.87455C10.2544 14.0772 11.5778 13.529 12.5535 12.5533C13.5293 11.5776 14.0774 10.2542 14.0774 8.87431V5.40574C14.0774 4.02585 13.5293 2.70249 12.5535 1.72676C11.5778 0.751038 10.2544 0.202881 8.87455 0.202881ZM10.6088 8.87431C10.6088 9.33427 10.4261 9.77539 10.1009 10.1006C9.77564 10.4259 9.33451 10.6086 8.87455 10.6086H5.40598C4.94602 10.6086 4.5049 10.4259 4.17966 10.1006C3.85442 9.77539 3.6717 9.33427 3.6717 8.87431V5.40574C3.6717 4.94578 3.85442 4.50465 4.17966 4.17941C4.5049 3.85417 4.94602 3.67145 5.40598 3.67145H8.87455C9.33451 3.67145 9.77564 3.85417 10.1009 4.17941C10.4261 4.50465 10.6088 4.94578 10.6088 5.40574V8.87431ZM8.87455 17.5457H5.40598C4.0261 17.5457 2.70273 18.0939 1.72701 19.0696C0.751282 20.0453 0.203125 21.3687 0.203125 22.7486V26.2172C0.203125 27.597 0.751282 28.9204 1.72701 29.8961C2.70273 30.8719 4.0261 31.42 5.40598 31.42H8.87455C10.2544 31.42 11.5778 30.8719 12.5535 29.8961C13.5293 28.9204 14.0774 27.597 14.0774 26.2172V22.7486C14.0774 21.3687 13.5293 20.0453 12.5535 19.0696C11.5778 18.0939 10.2544 17.5457 8.87455 17.5457ZM10.6088 26.2172C10.6088 26.6771 10.4261 27.1183 10.1009 27.4435C9.77564 27.7687 9.33451 27.9515 8.87455 27.9515H5.40598C4.94602 27.9515 4.5049 27.7687 4.17966 27.4435C3.85442 27.1183 3.6717 26.6771 3.6717 26.2172V22.7486C3.6717 22.2886 3.85442 21.8475 4.17966 21.5223C4.5049 21.197 4.94602 21.0143 5.40598 21.0143H8.87455C9.33451 21.0143 9.77564 21.197 10.1009 21.5223C10.4261 21.8475 10.6088 22.2886 10.6088 22.7486V26.2172ZM26.2174 17.5457H22.7488C21.369 17.5457 20.0456 18.0939 19.0699 19.0696C18.0941 20.0453 17.546 21.3687 17.546 22.7486V26.2172C17.546 27.597 18.0941 28.9204 19.0699 29.8961C20.0456 30.8719 21.369 31.42 22.7488 31.42H26.2174C27.5973 31.42 28.9207 30.8719 29.8964 29.8961C30.8721 28.9204 31.4203 27.597 31.4203 26.2172V22.7486C31.4203 21.3687 30.8721 20.0453 29.8964 19.0696C28.9207 18.0939 27.5973 17.5457 26.2174 17.5457ZM27.9517 26.2172C27.9517 26.6771 27.769 27.1183 27.4437 27.4435C27.1185 27.7687 26.6774 27.9515 26.2174 27.9515H22.7488C22.2889 27.9515 21.8478 27.7687 21.5225 27.4435C21.1973 27.1183 21.0146 26.6771 21.0146 26.2172V22.7486C21.0146 22.2886 21.1973 21.8475 21.5225 21.5223C21.8478 21.197 22.2889 21.0143 22.7488 21.0143H26.2174C26.6774 21.0143 27.1185 21.197 27.4437 21.5223C27.769 21.8475 27.9517 22.2886 27.9517 22.7486V26.2172ZM17.546 3.67145C17.546 3.21149 17.7287 2.77037 18.0539 2.44513C18.3792 2.11989 18.8203 1.93717 19.2803 1.93717H29.686C30.1459 1.93717 30.5871 2.11989 30.9123 2.44513C31.2376 2.77037 31.4203 3.21149 31.4203 3.67145C31.4203 4.13141 31.2376 4.57254 30.9123 4.89778C30.5871 5.22302 30.1459 5.40574 29.686 5.40574H19.2803C18.8203 5.40574 18.3792 5.22302 18.0539 4.89778C17.7287 4.57254 17.546 4.13141 17.546 3.67145ZM31.4203 10.6086C31.4203 11.0686 31.2376 11.5097 30.9123 11.8349C30.5871 12.1602 30.1459 12.3429 29.686 12.3429H19.2803C18.8203 12.3429 18.3792 12.1602 18.0539 11.8349C17.7287 11.5097 17.546 11.0686 17.546 10.6086C17.546 10.1486 17.7287 9.70751 18.0539 9.38227C18.3792 9.05703 18.8203 8.87431 19.2803 8.87431H29.686C30.1459 8.87431 30.5871 9.05703 30.9123 9.38227C31.2376 9.70751 31.4203 10.1486 31.4203 10.6086Z" fill="white" />
                   </svg>
                 </button>
-
 
                 <ul class="dropdown-menu bg-success-subtle px-2" style="max-width:300px !important;">
 
@@ -288,6 +301,18 @@ if (in_array($data['PageFile'], $header_title_search)) {
                                 echo 'active';
                               } ?>"> <a href="<?= $data['Admins']; ?>/index<?= $data['ex'] ?>" class="waves-effect" title="Dashboard"><i class="<?= $data['fwicon']['home']; ?> fa-fw text-warning"></i> <span>Dashboard</span> </a> </li>
 
+
+                  <li class="<?php if ($data['PageFile'] == 'analytics ') {
+                                echo 'active';
+                              } ?>"> <a href="<?= $data['Admins']; ?>/analytics<?= $data['ex'] ?>" class="waves-effect" title="Analytics "><i class="<?= $data['fwicon']['home']; ?> fa-fw text-warning"></i> <span>Analytics </span> </a> </li>
+
+
+
+                  <li class="<?php if ($data['PageFile'] == 'maillist') {
+                                echo 'active';
+                              } ?>"> <a href="<?= $data['Admins']; ?>/maillist<?= $data['ex'] ?>" class="waves-effect" title="Mail List"><i class="<?= $data['fwicon']['home']; ?> fa-fw text-warning"></i> <span>Mail List</span> </a> </li>
+
+
                   <li class="<?php if ($data['PageFile'] == 'transaction') {
                                 echo 'active';
                               } ?>"> <a href="<?= $data['Admins']; ?>/transaction<?= $data['ex'] ?>" class=" waves-effect" title="All Transactions"><i class="<?= $data['fwicon']['transaction']; ?> fa-fw text-warning"></i> <span>All Transactions</span> </a> </li>
@@ -314,7 +339,11 @@ if (in_array($data['PageFile'], $header_title_search)) {
                   <li class="<?php if ($data['PageFile'] == 'kyc-list') echo 'active'; ?>"> <a href="<?= $data['Admins']; ?>/kyc-list<?= $data['ex'] ?>" class="waves-effect" title="kyc list"><i class="<?= $data['fwicon']['bank']; ?> fa-fw text-warning"></i> <span>KYC Applicant List</span> </a> </li>
 
 
-                  <?php /*?><li class="<?php if($data['PageFile']=='manage-crypto-exchange-rate'){ echo 'active';} ?>"> <a href="<?=$data['Admins'];?>/manage-crypto-exchange-rate<?=$data['ex']?>" class="waves-effect" title="Crypto Exchange Rate"><i class="<?=$data['fwicon']['bitcoin'];?> fa-fw"></i> <span>Crypto Exchange Rate</span> </a> </li><?php */ ?>
+
+
+
+
+                  <?php /*?><li class="<?php if($data['PageFile']=='manage-crypto-exchange-rate'){ echo 'active';} ?>"> <a href="<?=$data['Admins'];?>/manage-crypto-exchange-rate<?=$data['ex']?>" class="waves-effect" title="Crypto Exchange Rate"><i class="<?=$data['fwicon']['bitcoin'];?> fa-fw"></i> <span>Crypto Exchange Rate</span> </a> </li><?php  ?>
 
 
                   <?php /*?><li class="<?php if($data['PageFile']=='generate-fees'){ echo 'active';} ?>"> <a href="<?=$data['Admins'];?>/generate-fees<?=$data['ex']?>" class="waves-effect" title="Generate Fee"><i class="<?=$data['fwicon']['fees'];?> fa-fw"></i> <span>Generate Fee</span> </a> </li><?php */ ?>

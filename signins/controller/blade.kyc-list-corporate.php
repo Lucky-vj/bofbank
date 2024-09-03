@@ -1,6 +1,6 @@
 <?php
-$data['PageName'] = 'KYC List';
-$data['PageFile'] = 'kyc-list';
+$data['PageName'] = 'Corporate KYC List';
+$data['PageFile'] = 'kyc-list-corporate';
 is_admin_session();
 
 $action = "Add";

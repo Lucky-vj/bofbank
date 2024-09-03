@@ -59,8 +59,7 @@ include "controller/blade.kyc-list.php";
                             <thead>
                               <tr>
                                 <th scope="col"><strong>Account Name</strong></th>
-                                <!-- <th scope="col"><strong>kycID</strong></th> -->
-                                <!-- <th scope="col"><strong>applicantId</strong></th> -->
+
                                 <th scope="col"><strong>Email</strong></th>
                                 <th scope="col"><strong>KYC Level Name</strong></th>
                                 <th scope="col"><strong>KYC Status</strong></th>
@@ -71,7 +70,7 @@ include "controller/blade.kyc-list.php";
                             </thead>
                             <tbody>
                               <?php
-                              foreach ($rows as $key => $result) {
+                              foreach ($kyc as $key => $result) {
                                 $member_username = member_username($result['client_id']);
                                 $member_detail_temp = member_details($result['client_id'], 'full_name,company_name');
                                 $member_fullname = $member_detail_temp['full_name'];
@@ -79,8 +78,7 @@ include "controller/blade.kyc-list.php";
                               ?>
                                 <tr>
                                   <td> <a class="text-primary" onclick="iframe_open_modal(this);" data-tid="Profile Details - (<?= $member_username; ?>)" data-ihref="<?= $data['Admins']; ?>/profile_view<?= $data['ex']; ?>?client_id=<?= $result['client_id'] ?>&admin_view=1" title="<?= $result['full_name'] ?> (<?= $result['username'] ?>)"><?= $member_fullname; ?> ( <?= $member_company ?> )</a></td>
-                                  <!-- <td><?= $result['kyc_id'] ?></td> -->
-                                  <!-- <td><?= $result['applicantId'] ?></td> -->
+
                                   <td><?= $member_username ?></td>
                                   <td><?= $result['kyc_levelName'] ?></td>
                                   <td>
@@ -90,7 +88,7 @@ include "controller/blade.kyc-list.php";
                                   <? } ?>
 
                                   </td>
-                                  <td><?= prndate($result['Admin_Kyc_Timestamp']) ?></td>
+                                  <td><?= htmlspecialchars(prndate($result['Admin_Kyc_Timestamp'])) ?></td>
                                   <td>
                                     <? if ($result['Admin_Kyc_status'] == 0) { ?>
                                       <a onClick="return confirm('Are you Sure to complete this kyc');" title="Complete KYC" class="btn btn-sm btn-outline-success kyc-activate" data-kyc="<?= $result['id'] ?>">Pending Admin Approval</a>

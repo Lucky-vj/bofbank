@@ -13,6 +13,7 @@ $tid=$_GET['tid'];
 if($_SESSION['default_IBAN_issuer']==3){
 	
 	$sel=db_rows("SELECT * FROM tbl_master_trans_table_thekingdombank WHERE transactionId='$tid' "); //and member_id='$member_account_number'
+	// print_r($sel);exit;
 	$nor=$db_counts;
 	if($nor==0){
 	//header("location:member-transactions.php");
@@ -36,6 +37,9 @@ if($_SESSION['default_IBAN_issuer']==3){
     
 	
 	$sel=db_rows("SELECT * FROM `tbl_master_trans_table` WHERE `transaction_id`='$tid' AND `member_id`='$member_account_number' AND iban_id='".$_SESSION['default_IBAN_issuer']."'");
+	// print_r($sel);
+	// exit;
+	 
 	$nor=$db_counts;
 	if($nor==0){
 	//header("location:member-transactions.php");

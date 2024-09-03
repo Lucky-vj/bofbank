@@ -51,7 +51,7 @@ $html.='<table class="table table-striped table-nowrap">
                       <tr class="font-weight-bolder">
                         <th scope="col">Trans ID</th>
                         <th scope="col">Bill Amt</th>
-						<th scope="col">Trans Amt</th>
+						            <th scope="col">Trans Amt</th>
                         <th scope="col">Timestamp</th>
                         <th scope="col">Trans Response</th>
                         <th scope="col">Trans Status</th>
@@ -69,7 +69,6 @@ $filename = "Account_Statement_of_".$_REQUEST['bid']."_Total_Records_".$nor."_".
 // include autoloader
 require_once 'dompdf/autoload.inc.php';
 
-// reference the Dompdf namespace
 
 use Dompdf\Dompdf;
 
@@ -84,8 +83,5 @@ $dompdf->setPaper('A4', 'orientation');
 // Render the HTML as PDF
 $dompdf->render();
 
-// Output the generated PDF to Browser
-
-//$dompdf->stream($filename); // Download
 
 $dompdf->stream($filename,array("Attachment"=>1));

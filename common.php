@@ -76,9 +76,9 @@ $data['Folder'] = $folder;
 $db_hostname = 'localhost';	        // mysql host name
 
 // For Boof ebank Server
-$db_username = 'bofbank_ebank';		// mysql user name
+$db_username = 'root';		// mysql user name
 $db_database = 'bofbank_ebank';		// mysql db_password
-$db_password = 'ntAD4ujx[_DR'; //'bofbank_ebank_master';		// mysql db_name
+$db_password = ''; //'bofbank_ebank_master';		// mysql db_name
 
 // For Boof Root Server
 //$db_username= 'bofbank_new-db';		// mysql user name
@@ -106,7 +106,7 @@ if ($data['localhosts'] == true)	        //if you browse in local system then ex
 	$db_hostname = 'localhost';	         // mysql host name
 	$db_username = 'root';		         // mysql user name
 	$db_password = '';			         // mysql db_password
-	$db_database = 'bofbank_ebank_master';		 // mysql db_name
+	$db_database = 'bofbank_ebank';		 // mysql db_name
 
 	$data['MYWEBSITE'] = 'Website';
 	$data['MYWEBSITEURL'] = 'website';
