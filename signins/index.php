@@ -70,8 +70,316 @@ include "controller/blade.index.php";
         </div>
       </div>
 
-      <?php include "../common/trans_search_form.php"; ?>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <h5> EUR-balance</h5>
+                </div>
+                <div class="avatar-xs"> <span class="avatar-title rounded-circle bg-primary"> <i class="<?= $data['fwicon']['settlement']; ?>"></i> </span> </div>
+              </div>
+              <h4 class="m-0 align-self-center"> € <?php echo $total_euro_trans ?> </h4>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <h5> USD-balance</h5>
+                </div>
+                <div class="avatar-xs"> <span class="avatar-title rounded-circle bg-primary"> <i class="<?= $data['fwicon']['settlement']; ?>"></i> </span> </div>
+              </div>
+              <h4 class="m-0 align-self-center"> $ <?php echo $total_usd_trans ?> </h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <h5> GBP-balance</h5>
+                </div>
+                <div class="avatar-xs"> <span class="avatar-title rounded-circle bg-primary"> <i class="<?= $data['fwicon']['settlement']; ?>"></i> </span> </div>
+              </div>
+              <h4 class="m-0 align-self-center"> £ <?= !empty($total_Gbp_trans) ? number_format($total_Gbp_trans, 2) : '0'; ?></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <?php
+      $total_transaction = 0; // Default to 0 if no currency is selected
+
+      if (isset($_GET['currency']) && !empty($_GET['currency'])) {
+        $currency = $_GET['currency'];
+
+        $currency = htmlspecialchars($currency, ENT_QUOTES, 'UTF-8');
+
+        $query = "SELECT SUM(`transaction_amount`) AS `total_transaction` FROM `tbl_master_trans_table` WHERE `transaction_type` = 'Credit' AND `transaction_status` = 'Success' AND `converted_transaction_currency` = '$currency'";
+        $result = db_rows($query);
+
+        if ($result) {
+          $total_transaction = $result[0]['total_transaction'];
+        }
+      }
+      ?>
+
+      <!-- <div id="currencyTotal">
+        <?php if (!empty($currency)): ?>
+          <p>Total for <?= htmlspecialchars($currency); ?> : <?= number_format($total_transaction, 2); ?></p>
+        <?php else: ?>
+        <?php endif; ?>
+      </div> -->
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-body">
+                <h5>Overall Bof-balance</h5>
+              </div>
+              <div class="avatar-xs">
+                <span class="avatar-title rounded-circle bg-primary">
+                  <i class="<?= htmlspecialchars($data['fwicon']['settlement']); ?>"></i>
+                </span>
+              </div>
+            </div>
+            <!-- Display the total transaction amount -->
+            <h4 class="m-0 align-self-center"><?= htmlspecialchars($currency); ?>: <?= number_format($total_transaction, 2); ?></h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wrap the select element in a form to handle the submission -->
+      <form method="GET" action="">
+        <div class="col-lg-2 col-md-5 col-sm-12 px-3">
+          <div class="form-floating inner_page_input">
+            <i class="fa-solid fa-angle-down"></i>
+            <select name="currency" id="searchkeyname" title="Select key name" class="filter_option s_key_name form-select form-select-sm my-1 bg-transparent" autocomplete="off" onchange="this.form.submit()">
+              <option value="" selected="selected">Select Currency</option>
+              <option value="AUD" data-placeholder="AUD" title="AUD" <?= isset($currency) && $currency == 'AUD' ? 'selected' : '' ?>>AUD</option>
+              <option value="INR" data-holder="INR" title="INR" <?= isset($currency) && $currency == 'INR' ? 'selected' : '' ?>>INR</option>
+              <option value="JPY" data-holder="JPY" title="JPY" <?= isset($currency) && $currency == 'JPY' ? 'selected' : '' ?>>JPY</option>
+              <option value="CNY" data-holder="CNY" title="CNY" <?= isset($currency) && $currency == 'CNY' ? 'selected' : '' ?>>CNY</option>
+              <option value="GBP" data-holder="GBP" title="GBP" <?= isset($currency) && $currency == 'GBP' ? 'selected' : '' ?>>GBP</option>
+              <option value="THB" data-holder="THB" title="THB" <?= isset($currency) && $currency == 'THB' ? 'selected' : '' ?>>THB</option>
+              <option value="AED" data-holder="AED" title="AED" <?= isset($currency) && $currency == 'AED' ? 'selected' : '' ?>>AED</option>
+              <option value="EUR" data-holder="EUR" title="EUR" <?= isset($currency) && $currency == 'EUR' ? 'selected' : '' ?>>EUR</option>
+              <option value="USD" data-holder="USD" title="USD" <?= isset($currency) && $currency == 'USD' ? 'selected' : '' ?>>USD</option>
+
+              <?php if (isset($_SESSION['admin-info']) && $_SESSION['admin-info']) { ?>
+              <?php } ?>
+              <!-- <option value="7" data-holder="Description" title="Description" <?= isset($currency) && $currency == 'Description' ? 'selected' : '' ?>>Description</option> -->
+            </select>
+          </div>
+        </div>
+      </form>
+<!-- EURO bank -->
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <h4>Bank List From EURO</h4>
+                </div>
+                <div class="avatar-xs">
+                  <span class="avatar-title rounded-circle bg-primary">
+                    <i class="<?= htmlspecialchars($data['fwicon']['settlement']); ?>"></i>
+                  </span>
+                </div>
+              </div>
+              <!-- Display the total transaction amount -->
+              <h4 class="m-0 align-self-center"></h4>
+            </div>
+          </div>
+        </div>
+
+        <?php
+        $currency = 'EUR';
+        $currencies = explode(',', $currency);
+
+        $query = "SELECT * FROM tbl_common_bank_account WHERE 0";
+
+        foreach ($currencies as $cur) {
+          $cur = trim($cur);
+          $query .= " OR FIND_IN_SET('$cur', bank_supported_currency)";
+        }
+
+        $bank_list = db_rows($query);
+
+        if (!empty($bank_list)) {
+          foreach ($bank_list as $bank) {
+        ?>
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="media">
+                    <div class="media-body">
+                      <!-- <h5>Balance for <?= htmlspecialchars($bank['bank_supported_currency']); ?></h5>  -->
+                    </div>
+                    <div class="avatar-xs">
+                      <span class="avatar-title rounded-circle bg-primary">
+                        <i class="<?= htmlspecialchars($data['fwicon']['settlement']); ?>"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <h4 class="m-0 align-self-center">
+                    Bank Name: <?= htmlspecialchars($bank['bank_name'] ?? ' '); ?>
+                  </h4>
+                </div>
+              </div>
+            </div>
+        <?php
+          }
+        } else {
+          echo "No records found for the selected currencies.";
+        }
+        ?>
+      </div> <!-- End of row -->
+
+      <!-- USD bank -->
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <h4>Bank List From USD</h4>
+                </div>
+                <div class="avatar-xs">
+                  <span class="avatar-title rounded-circle bg-primary">
+                    <i class="<?= htmlspecialchars($data['fwicon']['settlement']); ?>"></i>
+                  </span>
+                </div>
+              </div>
+              <!-- Display the total transaction amount -->
+              <h4 class="m-0 align-self-center"></h4>
+            </div>
+          </div>
+        </div>
+
+        <?php
+        $currency = 'USD';
+        $currencies = explode(',', $currency);
+
+        $query = "SELECT * FROM tbl_common_bank_account WHERE 0";
+
+        foreach ($currencies as $cur) {
+          $cur = trim($cur);
+          $query .= " OR FIND_IN_SET('$cur', bank_supported_currency)";
+        }
+
+        $bank_list = db_rows($query);
+
+        if (!empty($bank_list)) {
+          foreach ($bank_list as $bank) {
+        ?>
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="media">
+                    <div class="media-body">
+                      <!-- <h5>Balance for <?= htmlspecialchars($bank['bank_supported_currency']); ?></h5>  -->
+                    </div>
+                    <div class="avatar-xs">
+                      <span class="avatar-title rounded-circle bg-primary">
+                        <i class="<?= htmlspecialchars($data['fwicon']['settlement']); ?>"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <h4 class="m-0 align-self-center">
+                    Bank Name: <?= htmlspecialchars($bank['bank_name'] ?? ' '); ?>
+                  </h4>
+                </div>
+              </div>
+            </div>
+        <?php
+          }
+        } else {
+          echo "No records found for the selected currencies.";
+        }
+        ?>
+      </div> <!-- End of row -->
+
+
+      <!-- GBP Bank -->
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <h4>Bank List From GBP</h4>
+                </div>
+                <div class="avatar-xs">
+                  <span class="avatar-title rounded-circle bg-primary">
+                    <i class="<?= htmlspecialchars($data['fwicon']['settlement']); ?>"></i>
+                  </span>
+                </div>
+              </div>
+              <!-- Display the total transaction amount -->
+              <h4 class="m-0 align-self-center"></h4>
+            </div>
+          </div>
+        </div>
+
+        <?php
+        $currency = 'GBP';
+        $currencies = explode(',', $currency);
+
+        $query = "SELECT * FROM tbl_common_bank_account WHERE 0";
+
+        foreach ($currencies as $cur) {
+          $cur = trim($cur);
+          $query .= " OR FIND_IN_SET('$cur', bank_supported_currency)";
+        }
+
+        $bank_list = db_rows($query);
+
+        if (!empty($bank_list)) {
+          foreach ($bank_list as $bank) {
+        ?>
+            <!-- Start a single row for all bank cards -->
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="media">
+                    <div class="media-body">
+                      <!-- <h5>Balance for <?= htmlspecialchars($bank['bank_supported_currency']); ?></h5>  -->
+                    </div>
+                    <div class="avatar-xs">
+                      <span class="avatar-title rounded-circle bg-primary">
+                        <i class="<?= htmlspecialchars($data['fwicon']['settlement']); ?>"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <h4 class="m-0 align-self-center">
+                    Bank Name: <?= htmlspecialchars($bank['bank_name'] ?? ' '); ?>
+                  </h4>
+                </div>
+              </div>
+            </div>
+        <?php
+          }
+        } else {
+          echo "No records found for the selected currencies.";
+        }
+        ?>
+      </div> <!-- End of row -->
+
+
+
+      <?php include "../common/trans_search_form.php"; ?>
 
       <?php if (isset($_SESSION['msg']) == "ok") { ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Success!</strong> Customer Details Update Successfully.
@@ -85,9 +393,7 @@ include "controller/blade.index.php";
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <?php /*?><div class="float-start col-sm-6">
-                  <h4 class="header-title text-logo">Transaction - <?=$rows;?></h4>
-                </div><?php */ ?>
+                <?php  ?>
                 <div class="float-end col-sm-12">
 
                   <button type="button" class="btn btn-primary btn-sm">Total Records <span class="badge text-bg-danger"><?= $rows; ?></span></button>
@@ -99,7 +405,7 @@ include "controller/blade.index.php";
                 </div>
               </div>
 
-              <? if ($rows > 0) {  //echo $vq; echo $requrl; 
+              <? if ($rows > 0) {
               ?>
                 <div class="table-responsive">
                   <table class="admin table table-centered table-nowrap mb-0">

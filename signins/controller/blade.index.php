@@ -26,6 +26,33 @@ $total_debit_trans = $totdebit[0]['total_dtran'];
 $totcredit = db_rows("SELECT COUNT(`transaction_id`) AS `total_ctran` FROM `tbl_master_trans_table` WHERE 1 and transaction_type='Credit' AND transaction_status='Success' ");
 $total_credit_trans = $totcredit[0]['total_ctran'];
 
+//// total transaction Euro
+
+$totcredit = db_rows("SELECT SUM(`transaction_amount`) AS `total_transaction` FROM `tbl_master_trans_table` WHERE 1 and transaction_type='Credit' AND transaction_status='Success' AND converted_transaction_currency='EUR' ");
+$total_euro_trans = $totcredit[0]['total_transaction'];
+
+//USD balance
+
+$totcredit = db_rows("SELECT SUM(`transaction_amount`) AS `total_transaction` FROM `tbl_master_trans_table` WHERE 1 and transaction_type='Credit' AND transaction_status='Success' AND converted_transaction_currency='USD' ");
+$total_usd_trans = $totcredit[0]['total_transaction'];
+
+//GBP balance
+
+$totcredit = db_rows("SELECT SUM(`transaction_amount`) AS `total_transaction` FROM `tbl_master_trans_table` WHERE 1 and transaction_type='Credit' AND transaction_status='Success' AND converted_transaction_currency='GBP' ");
+$total_Gbp_trans = $totcredit[0]['total_transaction'];
+
+//get currency list
+
+$currency_list = db_rows(("SELECT * FROM tbl_currency WHERE currency_status='Active' "));
+// print_r($currency_list);exit;
+
+//bank list
+$bank_list = db_rows(("SELECT * FROM tbl_common_bank_account WHERE bank_supported_currency='EUR'"));
+// echo "<pre>";
+// print_r($bank_list);exit;
+
+
+
 ///////// For Listing with Searching and paging ///////////
 $sql_query = " AND transaction_status='Success' ";
 $requrl = "";

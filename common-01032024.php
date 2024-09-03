@@ -847,7 +847,7 @@ function json_log_upd($tableId=0,$tableName='json_log',$action_name='Update',$ta
 		//$pLog_count=sizeof($pLog_de);
 
 		if(isset($pLog_de)){
-			error_reportingf(0);				// Turn off all error reporting
+			error_reportingf(0);				//ï¿½Turnï¿½offï¿½allï¿½errorï¿½reporting
 
 			$diff_ar=[];
 			$datde_ar=$dat;
@@ -1007,7 +1007,7 @@ function jsonreplace($str)
 		$str=str_replace(array('[productName],'),'",',$str);
 		$str=str_replace(array('[productName]},"'),'"},"',$str);
 		$str=str_replace(array('],"data"'),']","data"',$str);
-		$str=str_replace(array('”', '“'),'"',$str);
+		$str=str_replace(array('ï¿½', 'ï¿½'),'"',$str);
 		$str=str_replace(array('{order_token},'),array('{order_token}",'),$str);
 		$str=str_replace(array('}rn"}'),array('}}'),$str);
 		//$str = str_replace(array('[{','}]'), array('{','}'), $str );
@@ -1109,7 +1109,7 @@ function error_reportingf($type=0){
 	}elseif($type==2){
 		error_reporting(E_ERROR | E_WARNING | E_PARSE);	//Sets which PHP errors are reported
 	}else{
-		error_reporting(0);					// Turn off all error reporting
+		error_reporting(0);					//ï¿½Turnï¿½offï¿½allï¿½errorï¿½reporting
 	}
 }
 
